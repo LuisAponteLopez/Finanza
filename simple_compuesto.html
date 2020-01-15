@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+</head>
+<body>
+  <script>
+
+var instruccion,c,i,tasa,tipoInteres,year,meses,p,va,m;
+
+instruccion = prompt("Que quiere saber : valor acumulado , valor presente , tiempo ,  intere ?");
+instruccion = instruccion.toLowerCase();
+
+if(instruccion == "valor acumulado"){
+          c  =parseFloat(prompt("Ingrese el valor presente: "));
+
+          i = parseFloat(prompt("Ingrese el porciento de la tasa de interes o descuento; "));
+
+
+          tasa = prompt("Tienes " + i + "% de : interes o descuento");
+          tasa = tasa.toLowerCase();
+                    
+          tipoInteres = prompt("Como se esta calculando la tasa de " + tasa +" : compuesto , simple , nominal ?");
+          tipoInteres = tipoInteres.toLowerCase(); 
+                        
+                    if (tipoInteres == "nominal"){
+
+                      m = prompt(" tiene una tasa de "+  tasa + " de un "+ i + "% calculad : anual , semianual , trimestral , mensual ");
+                         if (m == "anual"){
+                           m=1;
+
+
+                         }
+                         else if( m == "semianual"){
+
+                        m = 2;
+
+                         }
+                         else if(m == "trimestral"){
+
+                          m=4;
+                        
+                         }
+                         else{
+
+                        m=12;
+
+                         }
+
+
+                     }
+                     else{}
+
+                    
+
+           year=parseInt(prompt("Ingrese los a~o:"));
+
+           meses=parseInt(prompt("Ingrese los meses:"));
+      
+      
+                   i = i/100;  
+                    if( tasa == "descuento"){
+                      i = i/(1+i);
+                    }
+                    else{}
+
+                   meses =meses/12;
+                   p = year + meses;
+  
+        
+        if(tipoInteres == "simple"){
+          
+        
+                   va = c*(1+i*p);
+                    
+            document.write("El total acumulado es :" + va);
+         }
+        else if(tipoInteres == "compuesto" ){
+
+           
+        
+                   va = c*(1+i)**p;       
+            
+           document.write("El total acumulado es :" + va);
+         }
+         else{
+
+             va = c(1 +i/m)**(m*p);
+             document.write("El total acumulado es :" + va);
+
+         }
+}
+else if(instruccion == "valor presente" ){
+
+      va  =parseFloat(prompt("Ingrese el valor futuro: "));
+
+      i = parseFloat(prompt("Ingrese el porciento de la tasa de interes o descuento; "));
+
+      tasa = prompt("Tienes " + i + "% de : interes o descuento");
+      tasa = tasa.toLowerCase();
+                    
+      tipoInteres = prompt("Como se esta calculando la tasa de " + tasa +" : compuesto o simple ?");
+      tipoInteres = tipoInteres.toLowerCase(); 
+             
+
+                                                if (tipoInteres == "nominal"){
+
+                                                m = prompt(" tiene una tasa de "+  tasa + " de un "+ i + "% calculad : anual , semianual , trimestral , mensual ");
+                                                  if (m == "anual"){
+                                                    m=1;
+
+
+                                                  }
+                                                  else if( m == "semianual"){
+
+                                                  m = 2;
+
+                                                  }
+                                                  else if(m == "trimestral"){
+
+                                                    m=4;
+                                                  
+                                                  }
+                                                  else{
+
+                                                  m=12;
+
+                                                  }
+
+
+                                                }
+                                                else{}
+
+
+      
+      year=parseInt(prompt("Ingrese los a~o:"));
+
+      meses=parseInt(prompt("Ingrese los meses:"));
+
+
+                  i = i/100;
+                  if( tasa == "descuento"){
+
+                      i = i/(1+i);
+
+                    }
+                    else{
+
+                    }
+
+                  meses =meses/12;
+                  p = year + meses;
+      
+      if(tipoInteres == "simple"){
+          
+        
+          c = va/(1+i*p);
+           
+          document.write("El valor presente :" + c);
+       }
+       else if(tipoInteres == "compuesto"){
+
+  
+
+          c = va/(1+i)**p;       
+   
+         document.write("El valor presente  :" + c);
+       }
+       else{
+           c =  va/((1 +i/m)**m*p);
+             document.write("El valor presente :" + c);
+       }
+}
+else if(instruccion == "tiempo"){
+      c  =parseFloat(prompt("Ingrese el valor presente: "));
+
+      i = parseFloat(prompt("Ingrese el porciento de la tasa de interes o descuento; "));
+
+      tasa = prompt("Tienes " + i + "% de : interes o descuento");
+      tasa = tasa.toLowerCase();
+                    
+      tipoInteres = prompt("Como se esta calculando la tasa de " + tasa +" : compuesto o simple ?");
+      tipoInteres = tipoInteres.toLowerCase(); 
+
+      va= prompt("Ingrese el valor futuro");
+
+
+                  i = i/100;
+                  if( tasa == "descuento"){
+
+                      i = i/(1+i);
+
+                    }
+                    else{
+
+                    }
+
+          
+
+      if(tipoInteres == "simple"){
+          
+        
+          p=  (va / c - 1)/i ;
+          
+          document.write("El tiempo es :" + p);
+      }
+      else if(tipoInteres == "compuesto"){
+
+
+
+        p=ln(va/c) / ln(1-i);
+
+        document.write("EL Tiempo es :" + p);
+      }
+      else{
+
+      }
+     
+  
+}
+else if(instruccion == "intere"){
+      c  =parseFloat(prompt("Ingrese el valor presente: "));
+
+      
+      
+      year=parseInt(prompt("Ingrese los a~o:"));
+
+      meses=parseInt(prompt("Ingrese los meses:"));
+          
+          
+                    
+                      meses =meses/12;
+                      p = year + meses;
+      
+              
+
+      va= prompt("Ingrese el valor futuro");
+
+
+      tipoInteres = prompt("Como se esta calculando la tasa de interes : compuesto o simple ?");
+      tipoInteres = tipoInteres.toLowerCase(); 
+    
+          
+
+      if(tipoInteres == "simple"){
+          
+        
+          i = ((va / c ) -1 )*p;
+          i = 100*i; //convertirlo en %
+          
+          document.write("EL interes es :" + i);
+      }
+      else if(tipoInteres == "compuesto"){
+
+
+
+        i = (va / c )**(1/p)-1;
+        i = 100*i; //convertirlo en %
+
+        document.write("EL interes es :" + i);
+      }
+      else{
+
+      }
+}
+else{
+  
+}
+ 
+  
+</script>
+</body>
+</html>
